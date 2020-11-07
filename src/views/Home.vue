@@ -10,9 +10,3 @@ export default {
   name: 'Home',
 }
 </script>
-
-<style scoped>
-  input {
-    background: lightblue;
-  }
-</style>
