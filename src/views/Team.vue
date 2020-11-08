@@ -4,8 +4,23 @@
 
     <v-container fluid class="my-5">
       <v-row>
-        <v-col>
-          <v-btn outlined block class="primary">1</v-btn>
+        <v-col cols='12' sm='6' md='4' lg='3' v-for="person in team" :key="person.name">
+          <v-card flat outlined class="text-center ma-3">
+            <!-- v-responsive to keep the aspect ratio of anything / can use v-img for image  -->
+            <v-responsive class="pt-4">
+              image goes here
+            </v-responsive>
+            <v-card-text>
+              <div class="subheading">{{ person.name }}</div>
+              <div class="grey--text">{{ person.role }}</div>
+            </v-card-text>
+            <v-card-actions>
+              <v-btn text small class="grey--text">
+                <v-icon small left>mdi-message</v-icon>
+                <span>Message</span>
+              </v-btn>
+            </v-card-actions>
+          </v-card>
         </v-col>
       </v-row>
     </v-container>
@@ -16,5 +31,16 @@
 <script>
 export default {
   name: 'Team',
+  data() {
+    return {
+      team: [
+        { name: 'The Net Ninja', role: 'Web developer' },
+        { name: 'Ryu', role: 'Graphic designer' },
+        { name: 'Chun Li', role: 'Web developer' },
+        { name: 'Gouken', role: 'Social media maverick' },
+        { name: 'Yoshi', role: 'Sales guru'}
+      ]
+    }
+  }
 }
 </script>
