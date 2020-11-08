@@ -36,6 +36,14 @@
         </v-row>
         <v-divider></v-divider>
       </v-card>
+        <br><br>
+        
+      <div class="d-flex justify-space-around">
+        <v-btn class="pink white--text">Click me</v-btn>
+        <v-btn class="pink white--text">Click me</v-btn>
+        <v-btn class="pink white--text">Click me</v-btn>
+        <v-btn class="pink white--text">Click me</v-btn>
+      </div>
     </v-container>
 
   </div>
