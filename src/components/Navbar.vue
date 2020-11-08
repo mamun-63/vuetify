@@ -3,7 +3,7 @@
     <v-app-bar flat>
       <v-app-bar-nav-icon color="grey" @click="drawer = !drawer"></v-app-bar-nav-icon>
       
-      <v-toolbar-title>
+      <v-toolbar-title class="text-uppercase grey--text">
         <span class="font-weight-light">Todo</span>
         <span>Vuetify</span>
       </v-toolbar-title>
@@ -15,6 +15,14 @@
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" app temporary class="primary">
+      <v-row class="text-center">
+        <v-col class="mt-5">
+          <v-avatar size="100">
+            <img src="/avatar-1.png">
+          </v-avatar>
+          <p class="white--text subheading mt-1">The Net Ninja</p>
+        </v-col>
+      </v-row>
       <v-list>
         <v-list-item v-for="link in links" :key="link" router :to="link.route">
           <v-list-item-icon>
