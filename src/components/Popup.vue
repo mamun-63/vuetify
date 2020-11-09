@@ -10,16 +10,18 @@
         <h2>Add a New Project</h2>
       </v-card-title>
       <v-card-text>
-        <v-form class="px-3">
+        <v-form class="px-3" ref="form">
           <v-text-field
             label="Title"
             v-model="title"
             prepend-icon="mdi-folder"
+            :rules="inputRules"
           ></v-text-field>
           <v-textarea
             label="Information"
             v-model="content"
             prepend-icon="mdi-pencil-outline"
+            :rules="inputRules"
           ></v-textarea>
 
           <v-menu
@@ -37,6 +39,7 @@
                 v-bind="attrs"
                 v-on="on"
                 @click:clear="date = null"
+                :rules="inputRules"
               ></v-text-field>
             </template>
             <v-date-picker
@@ -66,11 +69,16 @@ export default {
       content: '',
       date: null,
       menu: false,
+      inputRules: [
+        v => v.length>=3 || 'Minimum length is 3 characters'
+      ]
     }
   },
   methods: {
     submit() {
-      console.log(this.title, this.content)
+      if(this.$refs.form.validate()) {
+        console.log(this.title, this.content)
+      }
     },
   },
 
