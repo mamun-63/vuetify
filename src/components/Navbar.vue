@@ -7,8 +7,8 @@
         <span class="font-weight-light">Todo</span>
         <span>Vuetify</span>
       </v-toolbar-title>
-      <v-spacer></v-spacer>
 
+      <v-spacer></v-spacer>
 
       <v-menu offset-y>
         <template v-slot:activator="{ on, attrs }">
@@ -49,6 +49,9 @@
           </v-avatar>
           <p class="white--text subheading mt-1">The Net Ninja</p>
         </v-col>
+        <v-col class="mt-4 mb-3">
+          <Popup />
+        </v-col>
       </v-row>
       <v-list>
         <v-list-item v-for="link in links" :key="link" router :to="link.route">
@@ -66,8 +69,13 @@
 </template>
 
 <script>
+import Popup from './Popup'
+
 export default {
   name: 'Navbar',
+  components:{
+    Popup
+  },
   data() {
     return {
       drawer: false,
